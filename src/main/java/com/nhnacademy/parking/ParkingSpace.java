@@ -1,8 +1,14 @@
 package com.nhnacademy.parking;
 
 public class ParkingSpace {
-    String code;
-    Car car;
+    private String code;
+
+    public Time getTime() {
+        return time;
+    }
+
+    private Car car;
+    private Time time;
     public ParkingSpace(Car car) {
         this(null,car);
     }
@@ -13,5 +19,9 @@ public class ParkingSpace {
 
     public String getCode() {
         return code;
+    }
+
+    public Car getCar() {
+        return car;
     }
 }

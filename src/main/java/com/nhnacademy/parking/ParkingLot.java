@@ -9,8 +9,8 @@ public class ParkingLot {
 
     public void enter(String scanCarNumber) {
         ParkingSpace parkingSpace;
-        int codeIndex = spaceArrayList.size();
-        String code = "A - "+codeIndex;
+        int codeIndex = spaceArrayList.size()+1;
+        String code = "A-"+codeIndex;
         if(checkSpace(scanCarNumber) == -1) {
            parkingSpace =  new ParkingSpace(code,new Car(scanCarNumber));
            spaceArrayList.add(parkingSpace);
@@ -20,14 +20,37 @@ public class ParkingLot {
         }
 
     }
+
     public int checkSpace(String scanCarNumber){
         return spaceArrayList.indexOf(new ParkingSpace(new Car(scanCarNumber)));
+
     }
     public String findParkingCode(String scanCarNumber){
-        int pakingCodeIndex = spaceArrayList.indexOf(scanCarNumber);
-        if(pakingCodeIndex != -1)
-            return spaceArrayList.get(pakingCodeIndex).getCode();
-
+        for (ParkingSpace parkingSpace : spaceArrayList) {
+            if (parkingSpace.getCar().getNumber().equals(scanCarNumber))
+                return parkingSpace.getCode();
+        }
         return null;
+    }
+    public ParkingSpace getParkingCarData(String scanCarNumber){
+        int index = getIndex(scanCarNumber);
+        if ( index != -1)
+            return spaceArrayList.get(index);
+        return null;
+    }
+    public int getIndex(String scanCarNumber){
+        for (int i = 0; i < spaceArrayList.size(); i++) {
+            if(spaceArrayList.get(i).getCar().getNumber().equals(scanCarNumber))
+                return i;
+        }
+        return -1;
+    }
+    public void out(String scanCarNumber) {
+        if(getIndex(scanCarNumber) != -1)
+        {
+            spaceArrayList.remove(getIndex(scanCarNumber));
+        }
+        System.out.println(scanCarNumber);
+        System.out.println(getIndex(scanCarNumber));
     }
 }

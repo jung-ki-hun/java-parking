@@ -9,5 +9,8 @@
         <module name="java-parking" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="java-parking" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
