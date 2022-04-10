@@ -4,7 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingLot {
-    List<ParkingSpace> spaceArrayList = new ArrayList<>();
+    private List<ParkingSpace> spaceArrayList = new ArrayList<>();
+
+    public List<ParkingSpace> getSpaceArrayList() {
+        return spaceArrayList;
+    }
+
 
 
     public void enter(String scanCarNumber) {
@@ -40,8 +45,9 @@ public class ParkingLot {
     }
     public int getIndex(String scanCarNumber){
         for (int i = 0; i < spaceArrayList.size(); i++) {
-            if(spaceArrayList.get(i).getCar().getNumber().equals(scanCarNumber))
+            if(spaceArrayList.get(i).getCar().getNumber().equals(scanCarNumber)) {
                 return i;
+            }
         }
         return -1;
     }
@@ -50,7 +56,5 @@ public class ParkingLot {
         {
             spaceArrayList.remove(getIndex(scanCarNumber));
         }
-        System.out.println(scanCarNumber);
-        System.out.println(getIndex(scanCarNumber));
     }
 }

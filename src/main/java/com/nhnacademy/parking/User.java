@@ -21,4 +21,12 @@ public class User {
     public long getAmount() {
         return amount;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+            "id='" + id + '\'' +
+            ", amount=" + amount +
+            '}';
+    }
 }
