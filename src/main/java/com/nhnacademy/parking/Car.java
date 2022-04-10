@@ -5,6 +5,11 @@ public class Car {
     private User user;
     private Time time;
     private int type; ///1 -> 경차 0 -> 대형차
+
+    public int getType() {
+        return type;
+    }
+
     public Time getTime() {
         return time;
     }
@@ -13,8 +18,15 @@ public class Car {
         return number;
     }
 
+//    public Car(String number, User user) {
+//        this(number,user,new Time(0,0,30,0));
+//    }
+
     public Car(String number, User user) {
-        this(number,user,new Time(0,0,30,0));
+        this.number = number;
+        this.user = user;
+        this.time = null;
+        this.type = 1;
     }
 
     public User getUser() {
@@ -34,9 +46,16 @@ public class Car {
         this.type = 1;
     }
 
-    public Car(String number) {
+//    public Car(String number) {
+//
+//        number,new User("user",10000),new Time(0,0,30,00));
+//    }
 
-        this(number,new User("user",10000),new Time(0,0,30,10));
+    public Car(String number) {
+        this.number = number;
+        this.user = null;
+        this.time = null;
+        this.type = 1;
     }
 
     @Override

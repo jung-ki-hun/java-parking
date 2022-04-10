@@ -3,10 +3,22 @@ package com.nhnacademy.parking;
 public class User {
     private final String id;
     private long amount;
+    private int payco;
+
+    public int getPayco() {
+        return payco;
+    }
 
     public User(String id, long amount) {
         this.id = id;
         this.amount = amount;
+        this.payco = 0;
+    }
+
+    public User(String id, long amount, int payco) {
+        this.id = id;
+        this.amount = amount;
+        this.payco = payco;
     }
 
     public User(String id) {
