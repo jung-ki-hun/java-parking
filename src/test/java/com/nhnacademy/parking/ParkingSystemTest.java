@@ -59,10 +59,10 @@ class ParkingSystemTest {
     @Test
      void pay_out_parkingSystem() {
 
-        Car car1 = new Car(testCarNumber ,new User("kihun"),new Time(0,0,20,30));
-        Car car2 = new Car("0123",new User("jodon",2000),new Time(0,0,30,0));
-        pakginglot.enter(parkingSystem.scanCarNumber(car1));
-        pakginglot.enter(parkingSystem.scanCarNumber(car2));
+        Car car1 = new Car(testCarNumber ,new User("kihun",2000,1),new Time(0,0,20,30));
+        Car car2 = new Car("0123",new User("jodon",2000,1),new Time(0,0,30,0));
+        pakginglot.enter2(parkingSystem.scanCarNumber(car1),car1);
+        pakginglot.enter2(parkingSystem.scanCarNumber(car2),car2);
 
 
         assertThat(parkingSystem.pay(parkingSystem.scanCarNumber(car2),pakginglot)).isTrue();
@@ -106,8 +106,8 @@ class ParkingSystemTest {
     void chagePayAmount() {
         Car car1 = new Car(testCarNumber ,new User("kihun"),new Time(0,0,20,30));
         Car car2 = new Car("0123",new User("jodon",2000),new Time(0,0,30,0),1);
-        pakginglot.enter(parkingSystem.scanCarNumber(car1));
-        pakginglot.enter(parkingSystem.scanCarNumber(car2));
+        pakginglot.enter2(parkingSystem.scanCarNumber(car1),car1);
+        pakginglot.enter2(parkingSystem.scanCarNumber(car2),car2);
         assertThat(parkingSystem.pay2(parkingSystem.scanCarNumber(car2),pakginglot)).isTrue();
     }
     @DisplayName("사용자가 payco 회원인 경우에는 주차요금이 10% 할인됩니다.")
@@ -116,8 +116,8 @@ class ParkingSystemTest {
 
         Car car1 = new Car(testCarNumber ,new User("kihun",2300,0),new Time(0,0,20,30));
         Car car2 = new Car("0123",new User("jodon0",2000,1),new Time(0,0,30,10),1);
-        pakginglot.enter(parkingSystem.scanCarNumber(car1));
-        pakginglot.enter(parkingSystem.scanCarNumber(car2));
+        pakginglot.enter2(parkingSystem.scanCarNumber(car1),car1);
+        pakginglot.enter2(parkingSystem.scanCarNumber(car2),car2);
         assertThat(parkingSystem.pay3(parkingSystem.scanCarNumber(car2),pakginglot)).isTrue();
     }
 

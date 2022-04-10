@@ -5,10 +5,6 @@ public class User {
     private long amount;
     private int payco;
 
-    public int getPayco() {
-        return payco;
-    }
-
     public User(String id, long amount) {
         this.id = id;
         this.amount = amount;
@@ -29,7 +25,9 @@ public class User {
     public String getId() {
         return id;
     }
-
+    public int getPayco() {
+        return payco;
+    }
     public long getAmount() {
         return amount;
     }

@@ -22,12 +22,12 @@ public class Car {
 //        this(number,user,new Time(0,0,30,0));
 //    }
 
-    public Car(String number, User user) {
-        this.number = number;
-        this.user = user;
-        this.time = null;
-        this.type = 1;
-    }
+//    public Car(String number, User user) {
+//        this.number = number;
+//        this.user = user;
+//        this.time = null;
+//        this.type = 1;
+//    }
 
     public User getUser() {
         return user;
@@ -45,12 +45,6 @@ public class Car {
         this.time = time;
         this.type = 1;
     }
-
-//    public Car(String number) {
-//
-//        number,new User("user",10000),new Time(0,0,30,00));
-//    }
-
     public Car(String number) {
         this.number = number;
         this.user = null;

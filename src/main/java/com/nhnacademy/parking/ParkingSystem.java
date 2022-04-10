@@ -11,7 +11,7 @@ public class ParkingSystem {
 
         ParkingSpace paymentCar = parkingLot.getParkingCarData(scanCarNumber);
 
-        int timeToSecond = (paymentCar.getCar().getTime().getHour() * 60 * 60) + (paymentCar.getCar().getTime().getMinute() * 60 ) + (paymentCar.getCar().getTime().getSecond());
+        int timeToSecond = paymentCar.getCar().getTime().getHour() * 60 * 60 + (paymentCar.getCar().getTime().getMinute() * 60 ) + (paymentCar.getCar().getTime().getSecond());
         System.out.println(timeToSecond);
         int parkingPrice = priceCalculation(timeToSecond) + (paymentCar.getCar().getTime().getDay() * 10000);
         System.out.println(parkingPrice);
@@ -50,11 +50,13 @@ public class ParkingSystem {
         ParkingSpace paymentCar = parkingLot.getParkingCarData(scanCarNumber);
         PaycoServer paycoServer = new PaycoServer();
         int parkingPrice = 0;
+        boolean isPayment = paycoServer.checkPayco(paymentCar.getCar().getUser().getId());
         int timeToSecond = (paymentCar.getCar().getTime().getHour() * 60 * 60) + (paymentCar.getCar().getTime().getMinute() * 60 ) + (paymentCar.getCar().getTime().getSecond());
         System.out.println(timeToSecond);
         if(paymentCar.getCar().getType() == 1) {
             parkingPrice = (int)((priceCalculation2(timeToSecond) + (paymentCar.getCar().getTime().getDay() * 15000) )* 0.5);
-            if(paycoServer.checkPayco(paymentCar.getCar().getUser().getId()))
+            System.out.println(isPayment);
+            if(isPayment)
                 parkingPrice = (int)(parkingPrice*0.9);
         }
 

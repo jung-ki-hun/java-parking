@@ -24,7 +24,21 @@ public class ParkingLot {
             throw new CarNumberIsNotSameException();
         }
 
+    }       public void enter2(String scanCarNumber,Car car) {
+        ParkingSpace parkingSpace;
+        int codeIndex = spaceArrayList.size()+1;
+        String code = "A-"+codeIndex;
+        if(checkSpace(scanCarNumber) == -1) {
+            parkingSpace =  new ParkingSpace(code,car);
+            spaceArrayList.add(parkingSpace);
+        }
+        if(checkSpace(scanCarNumber) != -1 ){
+            throw new CarNumberIsNotSameException();
+        }
+
     }
+
+
 
     public int checkSpace(String scanCarNumber){
         return spaceArrayList.indexOf(new ParkingSpace(new Car(scanCarNumber)));
