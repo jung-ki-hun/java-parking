@@ -119,6 +119,7 @@ class ParkingSystemTest {
         pakginglot.enter2(parkingSystem.scanCarNumber(car1),car1);
         pakginglot.enter2(parkingSystem.scanCarNumber(car2),car2);
         assertThat(parkingSystem.pay3(parkingSystem.scanCarNumber(car2),pakginglot)).isTrue();
+
     }
 
 }
